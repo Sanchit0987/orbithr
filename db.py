@@ -19,7 +19,9 @@ import sqlite3
 from datetime import date, datetime, timedelta
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "hrms.db")
+# On Vercel the repo filesystem is read-only; only /tmp is writable (ephemeral:
+# demo data re-seeds on cold starts). Locally the DB lives next to the code.
+DB_PATH = os.environ.get("ORBITHR_DB", os.path.join(BASE_DIR, "hrms.db"))
 
 TS_FMT = "%Y-%m-%d %H:%M"
 WEEKDAY_KEYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]

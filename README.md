@@ -2,6 +2,15 @@
 
 A Qandle-inspired attendance + HR web app, fully functional end-to-end.
 
+**Live demo:** https://orbithr-three.vercel.app
+(also https://orbithr-llm-cc8e.vercel.app)
+
+> **Hosting caveat:** Vercel functions have a read-only filesystem, so the live
+> demo stores its SQLite DB in `/tmp` — storage there is **ephemeral** and the
+> demo data re-seeds on cold starts. Treat the live site as a demo playground;
+> for durable storage run `python3 app.py` on a persistent host (Railway,
+> Render, Fly.io, a VPS) or port `db.py` to a hosted Postgres.
+
 > **Stack note:** the original brief asked for Next.js / TypeScript / Tailwind /
 > PostgreSQL. This machine has **no Node.js and no PostgreSQL** (only Python
 > 3.13), so this test build uses the Python standard library (`http.server`) with
@@ -26,6 +35,9 @@ state, a missed clock-out, a pending comp-off, an onboarding employee and audit
 history.
 
 ## Demo logins (password: `demo123`)
+
+> These credentials are intentionally **not** shown on the login page — this
+> README is the only place they are documented.
 
 | Email | Role | Sees |
 |---|---|---|
